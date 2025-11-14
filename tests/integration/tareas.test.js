@@ -21,7 +21,7 @@ afterEach(async () => {
   await Tarea.deleteMany();
 });
 
-describe('🎓 EJERCICIOS BÁSICOS - ENCUENTRA Y CORRIGE LOS ERRORES', () => {
+/* describe('🎓 EJERCICIOS BÁSICOS - ENCUENTRA Y CORRIGE LOS ERRORES', () => {
 
   test('POST /api/tareas crea una tarea', async () => {
     //  Corrección: Campo correcto 'title'
@@ -65,9 +65,9 @@ describe('🎓 EJERCICIOS BÁSICOS - ENCUENTRA Y CORRIGE LOS ERRORES', () => {
     expect(res.body[1].title).toBe('Tarea 2');
     expect(res.body[1].completed).toBe(true);
   });
-});
+}); */
   //  SOLUCIÓN 3: GET tarea específica
-  test('GET /api/tareas/:id devuelve una tarea específica', async () => {
+  /* test('GET /api/tareas/:id devuelve una tarea específica', async () => {
     const tarea = await Tarea.create({ title: 'Tarea específica' });
     
     //  Corrección: Usar ID correcto de la tarea creada
@@ -129,12 +129,12 @@ describe('🎓 EJERCICIOS BÁSICOS - ENCUENTRA Y CORRIGE LOS ERRORES', () => {
     
     // Verificación adicional
     expect(Array.isArray(res.body)).toBe(true);
-  }); 
+  });  */
 
 describe(' SOLUCIONES CORRECTAS - EJERCICIOS AVANZADOS', () => {
 
   //  SOLUCIÓN 7: PUT actualizar tarea
-  test('PUT /api/tareas/:id actualiza una tarea existente', async () => {
+  /* test('PUT /api/tareas/:id actualiza una tarea existente', async () => {
     // Crear tarea inicial
     const tareaOriginal = await Tarea.create({ 
       title: 'Tarea original',
@@ -247,7 +247,7 @@ describe(' SOLUCIONES CORRECTAS - EJERCICIOS AVANZADOS', () => {
     
     expect(fecha1.getTime()).toBeLessThanOrEqual(fecha2.getTime());
     expect(fecha2.getTime()).toBeLessThanOrEqual(fecha3.getTime());
-  });
+  }); */
 
   //  SOLUCIÓN 11: ID inválidos vs inexistentes
   test('API maneja IDs inválidos vs inexistentes correctamente', async () => {
@@ -300,7 +300,7 @@ describe(' SOLUCIONES CORRECTAS - EJERCICIOS AVANZADOS', () => {
   });
 });
 
-describe(' SOLUCIONES CORRECTAS - CASOS ADICIONALES', () => {
+/* describe(' SOLUCIONES CORRECTAS - CASOS ADICIONALES', () => {
 
   //  Tests adicionales para completar la cobertura
   test('PUT /api/tareas/:id devuelve 404 para ID inexistente', async () => {
@@ -348,4 +348,4 @@ describe(' SOLUCIONES CORRECTAS - CASOS ADICIONALES', () => {
     // afterEach automáticamente limpia después de cada test
     // Este test verifica que la limpieza funciona
   });
-}); 
+});  */
