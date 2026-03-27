@@ -1,5 +1,5 @@
 node_modules/
-material/
 .env
-.env.local
-coverage/
+dist/
+build/
+*.log
