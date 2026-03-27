@@ -1,13 +1,16 @@
-
 require('dotenv').config();
 const express = require('express');
 const helmet = require('helmet');
-app.use(helmet());
-const cors = require('cors');
+const cors = require('cors'); 
 const tareasRouter = require('./routes/tareas');
 const authRouter = require('./routes/auth');
-const app = express();
 
+
+// 1. PRIMERO  LA APP
+const app = express(); 
+
+// 2. ESCUDOS
+app.use(helmet());
 
 // capa 2: CONTROL DE ORIGENES
 app.use(cors({
@@ -19,9 +22,10 @@ app.use(cors({
 // capa 3: limite del payload
 app.use(express.json({ limit: '10kb' }));
 
+// 3. RUTAS
+
 app.use('/api/auth', authRouter);
 app.use('/api/tareas', tareasRouter);
-
 
 app.get('/', (req, res) => res.json({ ok: true }));
 
