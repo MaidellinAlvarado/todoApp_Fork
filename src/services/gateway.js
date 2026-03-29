@@ -37,7 +37,7 @@ async function login(email, password) {
     throw e; 
   }
 
-  // 'user' (en minúscula) es la instancia que encontramos, esa sí tiene comparePassword
+  
   const isValid = await user.comparePassword(password);
   if (!isValid) { 
     const e = new Error('Invalid credentials'); 
