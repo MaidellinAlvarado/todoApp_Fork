@@ -12,7 +12,7 @@ function generateToken(user) {
 
 // Lógica de Registro
 async function register(email, password) {
-  // Usamos UserModel (el nombre que elegimos arriba)
+  
   const existingUser = await UserModel.findOne({ email }); 
   
   if (existingUser) {
@@ -21,7 +21,7 @@ async function register(email, password) {
     throw error;
   }
   
-  // ¡AQUÍ ESTABA EL ERROR! Cambié User.create por UserModel.create
+  // User.create por UserModel.create
   const user = await UserModel.create({ email, password });
   return { user };
 }
