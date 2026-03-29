@@ -5,7 +5,7 @@ const app = require('./app');
 const PORT = process.env.PORT || 3000;
 
 
-// En tu server.js
+// En  server
 const MONGO_URI = process.env.MONGODB_URI;
 
 console.log('--- Intentando conectar a:', MONGO_URI);
