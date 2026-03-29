@@ -4,6 +4,8 @@ const helmet = require('helmet');
 const cors = require('cors'); 
 const tareasRouter = require('./routes/tareas');
 const authRouter = require('./routes/auth');
+const authenticateToken = require('./middleware/auth');
+
 
 
 // 1. PRIMERO  LA APP
@@ -19,13 +21,13 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-// capa 3: limite del payload
+// limite del payload
 app.use(express.json({ limit: '10kb' }));
 
-// 3. RUTAS
+// rutas protegidas por el middleware de autenticación
 
 app.use('/api/auth', authRouter);
-app.use('/api/tareas', tareasRouter);
+app.use('/api/tareas', authenticateToken, tareasRouter);
 
 app.get('/', (req, res) => res.json({ ok: true }));
 
