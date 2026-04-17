@@ -21,14 +21,13 @@ async function register(email, password) {
     throw error;
   }
   
-  // ¡AQUÍ ESTABA EL ERROR! Cambié User.create por UserModel.create
+
   const user = await UserModel.create({ email, password });
   return { user };
 }
 
 // Lógica de Login
 async function login(email, password) {
-  // Usamos UserModel para buscar
   const user = await UserModel.findOne({ email }); 
   
   if (!user) { 
@@ -37,7 +36,7 @@ async function login(email, password) {
     throw e; 
   }
 
-  // 'user' (en minúscula) es la instancia que encontramos, esa sí tiene comparePassword
+ 
   const isValid = await user.comparePassword(password);
   if (!isValid) { 
     const e = new Error('Invalid credentials'); 
