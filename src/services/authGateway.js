@@ -4,7 +4,6 @@ const tokenService = require('./tokenService');
 
 
 
-
 async function register(email, password) {
     const existingUser = await User.findOne({ email });
     if (existingUser) {

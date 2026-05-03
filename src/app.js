@@ -5,8 +5,7 @@ const cors = require('cors');
 const tareasRouter = require('./routes/tareas');
 const authRouter = require('./routes/auth');
 const authenticateToken = require('./middleware/auth');
-
-
+const errorHandler = require('./middleware/errorHandler');
 
 // 1. PRIMERO  LA APP
 const app = express(); 
@@ -25,10 +24,12 @@ app.use(cors({
 app.use(express.json({ limit: '10kb' }));
 
 // rutas protegidas por el middleware de autenticación
-
 app.use('/api/auth', authRouter);
 app.use('/api/tareas', authenticateToken, tareasRouter);
 
 app.get('/', (req, res) => res.json({ ok: true }));
+
+//  middleware de manejo de errores
+app.use(errorHandler);
 
 module.exports = app;
