@@ -70,7 +70,7 @@ router.delete('/:id', async (req, res, next) => {
       return res.status(404).json({ error: 'Not found' });
     }
     
-    return res.status(204).send(); // 204 No Content
+    return res.status(204).send(); 
   } catch (err) {
     next(err);
   }

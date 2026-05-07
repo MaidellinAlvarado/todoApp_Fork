@@ -1,17 +1,5 @@
 const Joi = require('joi');
 
-const createTareaSchema = Joi.object({
-  title:     Joi.string().min(1).max(20).required(),
-  completed: Joi.boolean().default(false)
-});
-
-module.exports = {
-  createTareaSchema
-}
-
-
-const Joi = require('joi');
-
 // Esquema para POST (Crear tarea)
 const createTareaSchema = Joi.object({
     title: Joi.string().trim().min(1).required().messages({
